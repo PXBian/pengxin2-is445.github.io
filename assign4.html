@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Embedding Vega-Lite</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.16.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.16.8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.12.2"></script>
+  </head>
+  <body>
+    <div id="my_visualization"></div>
+
+    <script type="text/javascript">
+      var x = {
+        $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
+        data: {url: "https://uiuc-ischool-dataviz.github.io/spring2019online/week02/building_inventory.csv"},
+        mark: 'bar',
+        encoding: {
+          x: {field: 'Congress Dist', type: 'quantitative'},
+          y: {aggregate: "count", type: 'quantitative'}
+        }
+      };
+      vegaEmbed('#my_visualization', x);
+    </script>
+  </body>
+</html>
